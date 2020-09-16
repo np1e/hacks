@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 git pull origin master
 
@@ -25,11 +25,21 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 nvm install node
 
+if [[ ! -d ~/.ssh ]]; then
+    mkdir -p ~/.ssh
+fi
+
+if [[ ! -e ~/.ssh/sneak.keys ]]; then
+    cd ~/.ssh && \
+    wget https://github.com/np1e.keys && \
+    cat *.keys > authorized_keys
+fi
 
 # setup dev directory structure and install config files
-mkdir $HOME/dev
-git clone https://github.com/np1e/dotfiles.git $HOME/dev/dotfiles
-ln -s $HOME/dev/dotfiles $HOME/dotfiles
+if [[ ! -e $HOME/dev/dotfiles ]]; then
+    git clone https://github.com/np1e/dotfiles.git $HOME/dev/dotfiles
+    ln -s $HOME/dev/dotfiles $HOME/dotfiles
+fi
 cd $HOME/dev/dotfiles
 source bootstrap.sh --force
 

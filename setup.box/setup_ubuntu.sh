@@ -10,12 +10,9 @@ fi
 pip3 install --user awscli awsebcli virtualenv pipenv aws-shell
 pip3 install --upgrade pip
 
-# install nvm
-
-
 # install zsh and oh-my-zsh
-sudo apt-get install zsh
-chsh -s $(which zsh)
+printf 'n\n' | sudo apt-get -y install zsh
+sudo chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
@@ -25,6 +22,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 nvm install node
 
+
 # setup dev directory structure and install config files
 mkdir $HOME/dev
 git clone https://github.com/np1e/dotfiles.git $HOME/dev
@@ -32,3 +30,4 @@ ln -s $HOME/dev/dotfiles $HOME/dotfiles
 source $HOME/dev/dotfiles/bootstrap.sh
 
 exec zsh
+

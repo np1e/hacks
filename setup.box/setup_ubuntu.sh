@@ -11,8 +11,8 @@ pip3 install --user awscli awsebcli virtualenv pipenv aws-shell
 pip3 install --upgrade pip
 
 # install zsh and oh-my-zsh
-printf 'n\n' | sudo apt-get -y install zsh
-sudo chsh -s $(which zsh)
+sudo apt-get -y install zsh
+chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
@@ -25,9 +25,10 @@ nvm install node
 
 # setup dev directory structure and install config files
 mkdir $HOME/dev
-git clone https://github.com/np1e/dotfiles.git $HOME/dev
+git clone https://github.com/np1e/dotfiles.git $HOME/dev/dotfiles
 ln -s $HOME/dev/dotfiles $HOME/dotfiles
-source $HOME/dev/dotfiles/bootstrap.sh
+cd $HOME/dev/dotfiles
+./bootstrap.sh --force
 
 exec zsh
 

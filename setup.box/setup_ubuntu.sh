@@ -31,3 +31,4 @@ git clone https://github.com/np1e/dotfiles.git $HOME/dev
 ln -s $HOME/dev/dotfiles $HOME/dotfiles
 source $HOME/dev/dotfiles/bootstrap.sh
 
+exec zsh

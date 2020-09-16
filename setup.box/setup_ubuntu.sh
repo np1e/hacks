@@ -16,8 +16,9 @@ pip3 install --upgrade pip
 touch $HOME/.zshrc
 sudo apt-get -y install zsh
 chsh -s $(which zsh)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+exec zsh
 
 # install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
@@ -31,7 +32,6 @@ mkdir $HOME/dev
 git clone https://github.com/np1e/dotfiles.git $HOME/dev/dotfiles
 ln -s $HOME/dev/dotfiles $HOME/dotfiles
 cd $HOME/dev/dotfiles
-./bootstrap.sh --force
+source bootstrap.sh --force
 
-exec zsh
 

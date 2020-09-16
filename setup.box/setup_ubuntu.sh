@@ -1,5 +1,7 @@
 #!/bin/sh
 
+git pull origin master
+
 if which lsb_release; then
     sudo apt-get update
     sudo apt-get -y upgrade
@@ -11,9 +13,10 @@ pip3 install --user awscli awsebcli virtualenv pipenv aws-shell
 pip3 install --upgrade pip
 
 # install zsh and oh-my-zsh
+touch $HOME/.zshrc
 sudo apt-get -y install zsh
 chsh -s $(which zsh)
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # install nvm

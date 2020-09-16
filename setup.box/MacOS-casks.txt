@@ -1,0 +1,7 @@
+quicklook-json
+betterzip
+iterm2
+docker
+google-chrome
+google-chat
+visual-studio-code

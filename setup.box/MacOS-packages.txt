@@ -1,0 +1,14 @@
+coreutils
+vim --with-override-system-vi
+wget --with-iri
+curl
+gnupg
+openssh
+grep
+screen
+php
+gmp
+tree
+imagemagick --with-webp
+git
+pyenv

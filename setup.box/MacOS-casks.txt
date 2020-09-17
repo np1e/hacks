@@ -6,3 +6,5 @@ google-chrome
 firefox
 google-chat
 visual-studio-code
+mactex
+texmaker

@@ -3,5 +3,6 @@ betterzip
 iterm2
 docker
 google-chrome
+firefox
 google-chat
 visual-studio-code
